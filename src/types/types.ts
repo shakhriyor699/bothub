@@ -1,15 +1,17 @@
 export interface IUser {
-  id: string;
+  id?: string;
   email: string;
   name: string;
   role: string;
-  subscription: ISubscription;
+  subscription: ISubscription & ISubscription['plan'];
+  tokens: ISubscription['tokens'];
 }
+
 
 export interface ISubscription {
   id: string;
   tokens: string;
-  plan: IPlan;
+  plan: IPlan & IPlan['type'];
 }
 
 export interface IPlan {
